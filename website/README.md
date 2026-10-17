@@ -19,14 +19,19 @@ Drop real photos into `assets/img/` and they appear automatically; nothing needs
 
 | File | Where it shows |
 | --- | --- |
+| `hero.jpg` | Home page hero, behind a flat navy layer |
 | `packing.jpg` | Home page, packing section |
 | `team.jpg` | About page |
 
-`.jpg`, `.jpeg`, `.webp` and `.png` all work. Without a file, that block simply collapses.
+`.jpg`, `.jpeg`, `.webp` and `.png` all work. Without a file, that block simply collapses. Use free-licence photos (Pexels, Unsplash) or your own, around 1600px wide, with no watermark and no other company's logo visible.
 
 ## Logo
 
 `assets/img/logo.png` is the header logo, cropped from the full logo. `favicon.png`, `apple-touch-icon.png` and `og-image.png` (the link preview image) are made from the same artwork. To use a different logo, replace those files or change `logo` in `config.php`.
+
+## Fonts and privacy
+
+Fonts are self-hosted (`assets/fonts/`, SIL Open Font License), so no request goes to Google. The site sets no cookies and has no analytics. `privacy.php` says exactly that, so **update it if you add analytics, ads or a chat widget**. It is a plain-language draft; have it checked against how Movora really handles customer data.
 
 ## Hosting
 

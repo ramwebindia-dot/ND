@@ -9,9 +9,10 @@ $page = [
 require SITE_ROOT . '/includes/header.php';
 
 $packingPhoto = photo('packing', 'A packing crew wrapping furniture before loading');
+$heroUrl = photo_url('hero');
 ?>
 
-<section class="hero">
+<section class="hero<?= $heroUrl ? ' hero--photo' : '' ?>"<?= $heroUrl ? ' style="--hero-img: url(\'' . e($heroUrl) . '\')"' : '' ?>>
     <div class="wrap hero__grid">
         <div class="hero__copy">
             <p class="eyebrow eyebrow--light">Packers &amp; Movers · Freight Logistics</p>

@@ -4,7 +4,7 @@ require __DIR__ . '/includes/bootstrap.php';
 header('Content-Type: application/xml; charset=UTF-8');
 
 $base  = rtrim((string) site('url'), '/');
-$pages = ['' => 'index.php', 'services' => 'services.php', 'about' => 'about.php', 'contact' => 'contact.php'];
+$pages = ['' => 'index.php', 'services' => 'services.php', 'about' => 'about.php', 'contact' => 'contact.php', 'privacy' => 'privacy.php'];
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";

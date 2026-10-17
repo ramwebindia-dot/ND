@@ -27,7 +27,7 @@ require SITE_ROOT . '/includes/header.php';
                 <div class="service__main">
                     <h3><?= e($item['title']) ?></h3>
                     <p><?= e($item['description']) ?></p>
-                    <a class="link-arrow" href="<?= e(url('contact')) ?>">Ask about this service</a>
+                    <a class="link-arrow" href="<?= e(url('contact') . '?service=' . rawurlencode($item['title']) . '#enquiry') ?>">Ask about this service</a>
                 </div>
                 <div class="service__list">
                     <p class="service__label">Usually includes</p>

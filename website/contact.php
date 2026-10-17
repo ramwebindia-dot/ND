@@ -29,6 +29,9 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         }
     }
     http_response_code($errors ? 422 : 200);
+} elseif (isset($_GET['service']) && in_array($_GET['service'], service_options(), true)) {
+    // Links such as "Ask about this service" preselect the service.
+    $old['service'] = $_GET['service'];
 }
 
 $page = [

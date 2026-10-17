@@ -55,19 +55,35 @@ function address_line(): string
     return trim(implode(', ', array_filter([$a['line1'] ?? '', trim($place)])));
 }
 
-/** An <img> inside a <figure>, or '' when the file has not been added to assets/img. */
-function photo(string $name, string $alt, string $class = 'photo'): string
+/** Path (relative to the site root) of assets/img/<name>.{jpg,jpeg,webp,png}, or '' if none was added. */
+function photo_file(string $name): string
 {
     foreach (['jpg', 'jpeg', 'webp', 'png'] as $ext) {
         $rel = "assets/img/$name.$ext";
-        $file = SITE_ROOT . '/' . $rel;
-        if (is_file($file)) {
-            [$w, $h] = getimagesize($file) ?: [0, 0];
-            $size = $w && $h ? sprintf(' width="%d" height="%d"', $w, $h) : '';
-            return '<figure class="' . e($class) . '"><img src="' . e(asset($rel)) . '" alt="' . e($alt) . '"' . $size . ' loading="lazy"></figure>';
+        if (is_file(SITE_ROOT . '/' . $rel)) {
+            return $rel;
         }
     }
     return '';
+}
+
+/** Public URL of a photo, or '' when the file has not been added to assets/img. */
+function photo_url(string $name): string
+{
+    $rel = photo_file($name);
+    return $rel !== '' ? asset($rel) : '';
+}
+
+/** An <img> inside a <figure>, or '' when the file has not been added to assets/img. */
+function photo(string $name, string $alt, string $class = 'photo'): string
+{
+    $rel = photo_file($name);
+    if ($rel === '') {
+        return '';
+    }
+    [$w, $h] = getimagesize(SITE_ROOT . '/' . $rel) ?: [0, 0];
+    $size = $w && $h ? sprintf(' width="%d" height="%d"', $w, $h) : '';
+    return '<figure class="' . e($class) . '"><img src="' . e(asset($rel)) . '" alt="' . e($alt) . '"' . $size . ' loading="lazy"></figure>';
 }
 
 /** All service titles, for the enquiry form's drop-down. */

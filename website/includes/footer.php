@@ -41,6 +41,7 @@
     </div>
     <div class="wrap site-footer__base">
         <p>&copy; <?= date('Y') ?> <?= e((string) (site('legal_name') ?: site('name'))) ?>. All rights reserved.</p>
+        <p><a href="<?= e(url('privacy')) ?>">Privacy policy</a></p>
     </div>
 </footer>
 

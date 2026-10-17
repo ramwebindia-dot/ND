@@ -44,9 +44,8 @@ $nav = [
     <link rel="icon" type="image/png" href="<?= e(asset('assets/img/favicon.png')) ?>">
     <link rel="apple-touch-icon" href="<?= e(asset('assets/img/apple-touch-icon.png')) ?>">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&amp;display=swap">
+    <link rel="preload" href="<?= e(asset('assets/fonts/public-sans-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="<?= e(asset('assets/fonts/source-serif-4-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="<?= e(asset('assets/css/style.css')) ?>">
     <script>document.documentElement.className = 'js';</script>
 
